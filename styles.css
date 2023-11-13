@@ -1,0 +1,111 @@
+body {
+  margin: 50px;
+  margin-left: 70px;
+  background-color: #0f2523;
+}
+
+.modal-title {
+  color: black;
+}
+
+h1 {
+  margin-top: 100px;
+  margin-bottom: 50px;
+  color: #fff;
+}
+
+li {
+  text-decoration: none;
+  margin-top: 30px;
+}
+
+.container {
+  width: 1500px;
+  margin: 0;
+  padding: 0;
+}
+
+.cards-container {
+  margin-top: 50px;
+  width: 1000px;
+}
+
+.navbar {
+  background-color: #f8bc08 !important;
+}
+
+.nav-item {
+  margin-top: 0;
+}
+
+.btn {
+  text-align: left !important;
+  padding: 20px !important;
+  font-size: 18px;
+}
+
+#add-item-button {
+  background-color: #24514e !important;
+  color: #fff;
+  border: #24514e !important;
+}
+
+#clear-item-button {
+  background-color: #24514e !important;
+  color: #fff;
+  border: #24514e !important;
+}
+
+.card-header {
+  color: #fff;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.item-bar {
+  margin-bottom: 20px;
+  border-radius: 8px;
+  padding: 30px;
+}
+
+.border-primary {
+  margin-bottom: 20px;
+  border-radius: 8px;
+  padding: 20px !important;
+}
+
+.fa-square {
+  padding-right: 5px;
+}
+
+.fa-plus {
+  padding: 7px;
+}
+
+.card-title {
+  margin: 0%;
+}
+
+#modal {
+  margin-bottom: 25px;
+}
+
+#modal button {
+  padding: 7px !important;
+}
+
+#clear-item-button {
+  margin-top: 20px;
+  padding: 10px !important;
+}
+
+#end-date {
+  padding-left: 20px;
+}
+
+.fa-trash-can {
+  float: right;
+  font-size: 18px;
+}
