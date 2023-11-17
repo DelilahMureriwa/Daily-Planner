@@ -109,3 +109,19 @@ li {
   float: right;
   font-size: 18px;
 }
+
+@media screen and (max-width: 300px) {
+  body {
+    margin: 15px !important;
+  }
+
+  .card {
+    max-width: 16rem !important;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  body {
+    margin: 50px;
+  }
+}
