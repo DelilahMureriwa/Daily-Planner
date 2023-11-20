@@ -128,7 +128,7 @@ li {
 
 @media screen and (max-width: 500px) {
   .modal-dialog {
-    width: 100%;
-    margin: 30px auto;
+    width: 80%;
+    margin: 70px auto;
   }
 }
