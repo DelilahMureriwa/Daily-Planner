@@ -105,8 +105,10 @@ clearItemBtn.addEventListener("click", clearList);
 saveItemBtn.addEventListener("click", function () {
   const addItem = document.getElementById("add-item").value;
   const itemDescription = document.getElementById("description-text").value;
-  const startDate = document.getElementById("start").value;
-  const endDate = document.getElementById("end").value;
+  let startDate = document.getElementById("start").value;
+  let endDate = document.getElementById("end").value;
+  const closeModal = document.getElementById("exampleModal");
+  const fade = document.querySelector(".modal-backdrop");
 
   //display date in card
   if (startDate && endDate) {
@@ -120,6 +122,16 @@ saveItemBtn.addEventListener("click", function () {
     //display items saved in storage
     displaySavedItem(valuesToSave); // Display with current form values
     saveItemToLocalStorage(valuesToSave); // Save the item to local storage
+
+    closeModal.style.display = "none";
+    fade.classList.remove("modal-backdrop");
+    // document.getElementById("myForm").reset();
+    let removeItems = document.querySelectorAll(".form-control");
+    removeItems.forEach((item) => {
+      item.value = "";
+    });
+    startDate.reset();
+    endDate.reset();
   } else {
     alert("Please enter valid start and end dates.");
   }
