@@ -123,13 +123,14 @@ saveItemBtn.addEventListener("click", function () {
     displaySavedItem(valuesToSave); // Display with current form values
     saveItemToLocalStorage(valuesToSave); // Save the item to local storage
 
+    //close the modal on submit
     closeModal.style.display = "none";
     fade.classList.remove("modal-backdrop");
     // document.getElementById("myForm").reset();
     let removeItems = document.querySelectorAll(".form-control");
     removeItems.forEach((item) => {
       item.value = "";
-      location.reload();
+      location.reload(); // reload to remove information in the form on submit
     });
     startDate.reset();
     endDate.reset();
