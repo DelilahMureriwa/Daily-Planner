@@ -129,6 +129,7 @@ saveItemBtn.addEventListener("click", function () {
     let removeItems = document.querySelectorAll(".form-control");
     removeItems.forEach((item) => {
       item.value = "";
+      location.reload();
     });
     startDate.reset();
     endDate.reset();
