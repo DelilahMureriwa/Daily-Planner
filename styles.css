@@ -126,6 +126,10 @@ li {
   body {
     margin: 50px;
   }
+
+  .card {
+    max-width: 16rem !important;
+  }
 }
 
 @media screen and (max-width: 700px) {
@@ -133,4 +137,9 @@ li {
     width: 90% !important;
     margin: 70px auto;
   }
+
+  .card {
+    max-width: 16rem !important;
+  }
 }
+

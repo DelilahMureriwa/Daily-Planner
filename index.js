@@ -2,8 +2,9 @@ const saveItemBtn = document.getElementById("save-button");
 const clearItemBtn = document.getElementById("clear-item-button");
 const deleteItemBtn = document.getElementById("delete-item-button");
 
+
 //store information on page
-window.addEventListener("load", function () {
+function displayItemsTODOM() {
   const storedValues = localStorage.getItem("userValues");
   if (storedValues) {
     const parsedValues = JSON.parse(storedValues);
@@ -11,15 +12,44 @@ window.addEventListener("load", function () {
       displaySavedItem(item);
     });
   }
-});
+}
 
-//formate date
-function formatDate(dateString) {
-  const options = { year: "numeric", month: "long", day: "numeric" };
-  const date = new Date(dateString);
-  return date.toString() !== "Invalid Date"
-    ? date.toLocaleDateString(undefined, options)
-    : "Invalid Date";
+
+function AddToDoItem() {
+  const addItem = document.getElementById("add-item").value;
+  const itemDescription = document.getElementById("description-text").value;
+  let startDate = document.getElementById("start").value;
+  let endDate = document.getElementById("end").value;
+  const closeModal = document.getElementById("exampleModal");
+  const fade = document.querySelector(".modal-backdrop");
+
+  //display date in card
+  if (startDate && endDate) {
+    const valuesToSave = {
+      item: addItem,
+      description: itemDescription,
+      startDate: startDate,
+      endDate: endDate,
+    };
+
+    //display items saved in storage
+    displaySavedItem(valuesToSave); // Display with current form values
+    saveItemToLocalStorage(valuesToSave); // Save the item to local storage
+
+    //close the modal on submit
+    closeModal.style.display = "none";
+    fade.classList.remove("modal-backdrop");
+    // document.getElementById("myForm").reset();
+    let removeItems = document.querySelectorAll(".form-control");
+    removeItems.forEach((item) => {
+      item.value = "";
+      location.reload(); // reload to remove information in the form on submit
+    });
+    startDate.reset();
+    endDate.reset();
+  } else {
+    alert("Please enter valid start and end dates.");
+  }
 }
 
 //display information on page
@@ -60,13 +90,26 @@ function displaySavedItem(userValues) {
       removeItemFromLocalStorage(userValues); // Remove the item from local storage
     });
 
-    //tickbox
+    
     let checkBoxBtn = div.querySelector(".fa-square");
     checkBoxBtn.addEventListener("click", function () {
-      checkBoxBtn.classList.remove("fa-square");
-      checkBoxBtn.classList.add("fa-square-check");
+    checkBoxBtn.classList.remove("fa-square");
+    checkBoxBtn.classList.add("fa-square-check");
+    // row.removeChild(div);
+    // removeItemFromLocalStorage(userValues);
+    
     });
   }
+}
+
+
+//format date
+function formatDate(dateString) {
+  const options = { year: "numeric", month: "long", day: "numeric" };
+  const date = new Date(dateString);
+  return date.toString() !== "Invalid Date"
+    ? date.toLocaleDateString(undefined, options)
+    : "Invalid Date";
 }
 
 //save items from local storage
@@ -81,7 +124,8 @@ function saveItemToLocalStorage(item) {
   }
 }
 
-//delete items from local storage
+
+//remove / delete items from local storage
 function removeItemFromLocalStorage(item) {
   if (localStorage.getItem("userValues")) {
     const storedValues = JSON.parse(localStorage.getItem("userValues"));
@@ -92,6 +136,8 @@ function removeItemFromLocalStorage(item) {
   }
 }
 
+
+
 //clear items in local storage
 function clearList() {
   const row = document.querySelector(".row");
@@ -99,42 +145,13 @@ function clearList() {
   localStorage.removeItem("userValues"); // Remove all stored values when clearing the list
 }
 
-clearItemBtn.addEventListener("click", clearList);
 
-//save button in modal
-saveItemBtn.addEventListener("click", function () {
-  const addItem = document.getElementById("add-item").value;
-  const itemDescription = document.getElementById("description-text").value;
-  let startDate = document.getElementById("start").value;
-  let endDate = document.getElementById("end").value;
-  const closeModal = document.getElementById("exampleModal");
-  const fade = document.querySelector(".modal-backdrop");
 
-  //display date in card
-  if (startDate && endDate) {
-    const valuesToSave = {
-      item: addItem,
-      description: itemDescription,
-      startDate: startDate,
-      endDate: endDate,
-    };
+function init(){
+  clearItemBtn.addEventListener("click", clearList);
+  saveItemBtn.addEventListener("click", AddToDoItem);
+  window.addEventListener("load", displayItemsTODOM);
+}
 
-    //display items saved in storage
-    displaySavedItem(valuesToSave); // Display with current form values
-    saveItemToLocalStorage(valuesToSave); // Save the item to local storage
+init()
 
-    //close the modal on submit
-    closeModal.style.display = "none";
-    fade.classList.remove("modal-backdrop");
-    // document.getElementById("myForm").reset();
-    let removeItems = document.querySelectorAll(".form-control");
-    removeItems.forEach((item) => {
-      item.value = "";
-      location.reload(); // reload to remove information in the form on submit
-    });
-    startDate.reset();
-    endDate.reset();
-  } else {
-    alert("Please enter valid start and end dates.");
-  }
-});

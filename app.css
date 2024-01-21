@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap");
 
 *,
 *::before,
@@ -8,12 +7,17 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Poppins", sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  color: white;
-  background-color: #0f2523;
+
+body{
+    background-color: #0f2523;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+.container{
+    max-width: 500px;
+    margin: 70px  auto;
+    padding: 10px;
 }
 
 header {
@@ -26,135 +30,132 @@ header {
 header h1 {
   font-weight: 300;
   font-size: 45px;
-  margin-left: 10px;
+  color: white;
 }
 
+ 
 .navbar {
   background-color: #f8bc08 !important;
 }
 
 .nav-item {
-  margin-top: 0;
+  margin-top: -15px;
+  border: transparent;
+  background-color:transparent;
 }
 
-.container {
-  max-width: 500px;
-  margin: 50px auto;
-  padding: 20px;
+form{
+    max-width: 478px;
+    margin-top: -30px;
 }
 
-.edit-mode {
-  color: rgb(97, 95, 95);
+.input-field{
+   width: 100%;
+   padding: 10px;
+   font-size: 18px;
+   border-radius: 5px;
+   outline: rgb(224, 221, 221);
+   border: 1px solid rgb(181, 178, 178);
+   background-color: rgb(241, 224, 241);
 }
 
-/* Form & Input */
-.form-input {
-  width: 100%;
-  font-size: 18px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  outline: none;
+.fa-cart-shopping {
+    margin-right: 10px;
+    color: rgb(60, 11, 223);
 }
 
-.form-control {
-  width: 100%;
-  font-size: 18px;
-  margin-bottom: 30px;
-  border-radius: 5px;
-  border: 1px solid #0f2523;
-  outline: none;
-  background-color: #0f2523;
+input{
+    margin-top: 20px;
+    padding: 7px;
+    border-radius: 5px;
 }
 
-.form-input-filter {
-  margin-top: 20px;
-  width: 100%;
-  font-size: 18px;
-  margin-bottom: 20px;
-  padding: 10px;
-  border: none;
-  border-bottom: 1px solid #ccc;
-  background: transparent;
-  outline: none;
+.submit-button{
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #24514e;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
 }
 
-/* Buttons */
-.btn {
-  background-color: #24514e !important;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
+ 
+
+.edit-mode{
+    color: rgb(68, 67, 67);
 }
 
-.btn:hover {
-  background-color: #333 !important;
-}
-
-.btn-link {
-  font-size: 16px;
-  background-color: transparent;
-  color: #333;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-}
-
-.btn-clear {
-  margin-top: 20px;
-  width: 100%;
-  font-size: 16px;
-  background-color: #eaa200;
-  color: white;
-  border: 1px solid #eaa200;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-.btn-clear:hover {
-  background-color: #f1f1f1;
-  color: black;
-}
-
-.text-red {
-  color: #035b58;
-}
-
-/* Items */
-
-.items {
-  margin-top: 20px;
-  display: flex;
-  flex-wrap: wrap;
+ul{
+    margin-top: 20px;
+    display: flex;
+    padding: 0px; 
+    flex-wrap: wrap;
+      
 }
 
 .items li {
-  display: flex;
-  justify-content: space-between;
-  width: 45%;
-  border: 1px solid #eaa200;
-  background-color: #eaa200;
-  border-radius: 5px;
-  padding: 10px 15px;
-  margin: 0 5px 20px;
-  color: black;
-}
+    display: flex; 
+    justify-content: space-between;  
+    list-style: none;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 10px 15px;
+    margin: 10px 5px;
+    width: 45%;
+    border: 1px solid #eaa200;
+    background-color: #eaa200;
+    color: black;
+    border-radius: 4px;
+    cursor: pointer;
+  }
 
-.items li:hover {
-  background-color: white;
-  border: 1px solid #f1ac06;
-  color: black;
-}
 
-@media (max-width: 500px) {
-  .items li {
+#clear{
     width: 100%;
-  }
-
-  header h1 {
-    font-size: 35px;
-  }
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #eaa200;
+    color: white;
+    border: 1px solid #eaa200;
+    font-size: 16px;
+    cursor: pointer;
 }
+
+#filter{
+    width: 95%;
+    outline: none;
+    border-color: transparent;
+    border-bottom: 1px solid rgb(181, 178, 178);
+    font-size: 18px;
+    background-color: transparent;
+    margin-top: 40px;
+}
+
+
+#delete{
+    outline: none;
+    border-color: transparent;
+    border: none;
+    font-size: 16px;
+    color: black;
+    right: 0 !important;
+    cursor: pointer;
+    background-color: rgb(241, 224, 241);
+}
+
+
+
+  @media (max-width: 500px){
+    .items li {
+        width: 100%;
+    }
+    .input-field{
+        width: 100%;
+    }
+    #clear{
+        width: 100%;
+    }
+  }
